@@ -1,0 +1,6 @@
+@NAID_Users_HostAddress = http://localhost:5140
+
+GET {{NAID_Users_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
