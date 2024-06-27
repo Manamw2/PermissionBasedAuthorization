@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NAID_Users")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+70e12b09ae642491910e3e41f5cf54f5e851d88c")]
 [assembly: System.Reflection.AssemblyProductAttribute("NAID_Users")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NAID_Users")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

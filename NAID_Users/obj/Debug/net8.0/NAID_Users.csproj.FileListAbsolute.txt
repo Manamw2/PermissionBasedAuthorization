@@ -146,3 +146,9 @@ D:\mahmoudamr\NAID_Users\NAID_Users\obj\Debug\net8.0\refint\NAID_Users.dll
 D:\mahmoudamr\NAID_Users\NAID_Users\obj\Debug\net8.0\NAID_Users.pdb
 D:\mahmoudamr\NAID_Users\NAID_Users\obj\Debug\net8.0\NAID_Users.genruntimeconfig.cache
 D:\mahmoudamr\NAID_Users\NAID_Users\obj\Debug\net8.0\ref\NAID_Users.dll
+D:\mahmoudamr\NAID_Users\NAID_Users\obj\Debug\net8.0\NAID_Users.sourcelink.json
+D:\mahmoudamr\NAID_Users\NAID_Users\bin\Debug\net8.0\Microsoft.Extensions.Caching.StackExchangeRedis.dll
+D:\mahmoudamr\NAID_Users\NAID_Users\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\mahmoudamr\NAID_Users\NAID_Users\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\mahmoudamr\NAID_Users\NAID_Users\bin\Debug\net8.0\Pipelines.Sockets.Unofficial.dll
+D:\mahmoudamr\NAID_Users\NAID_Users\bin\Debug\net8.0\StackExchange.Redis.dll

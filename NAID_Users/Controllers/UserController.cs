@@ -4,10 +4,10 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NAID_Users.Dtos.User;
-using NAID_Users.Extensions;
 using NAID_Users.Interfaces;
 using NAID_Users.Mappers;
 using NAID_Users.Models;
+using System.Security.Claims;
 
 namespace NAID_Users.Controllers
 {
@@ -53,13 +53,14 @@ namespace NAID_Users.Controllers
                 if (userResult.Succeeded)
                 {
                     var roleResult = await _userManager.AddToRoleAsync(appUser, "user");
+                    await _signInManager.SignInAsync(appUser, isPersistent: false);
                     if (roleResult.Succeeded)
                     {
                         return Ok(new NewUserDto
                         {
                             UserName = appUser.UserName,
                             Email = appUser.Email,
-                            Token = _tokenService.CreateToken(appUser, "user")
+                            //Token = _tokenService.CreateToken(appUser, "user")
                         });
                     }
                     else
@@ -97,17 +98,17 @@ namespace NAID_Users.Controllers
                         return Unauthorized("Invalid username or email");
                     }
                 }
-                var PasswordCheckResult = await _signInManager.CheckPasswordSignInAsync(user, logInDto.Password, false);
-                var roles = await _userManager.GetRolesAsync(user);
+                var result = await _signInManager.PasswordSignInAsync(user, logInDto.Password, true, lockoutOnFailure: false);
 
-                if (PasswordCheckResult.Succeeded)
+                if (result.Succeeded)
                 {
+                    var roles = await _userManager.GetRolesAsync(user);
                     return Ok(
                         new UserLogInInfo
                         {
                             UserName = user.UserName,
                             Email = user.Email,
-                            Token = _tokenService.CreateToken(user, roles[0]),
+                            //Token = _tokenService.CreateToken(user, roles[0]),
                             Role = roles[0]
                         }
                     );
@@ -121,6 +122,13 @@ namespace NAID_Users.Controllers
             {
                 return StatusCode(500, "Internal server error. Please try again later.");
             }
+        }
+
+        [HttpPost("logout")]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return Ok();
         }
 
         [HttpGet("getuserinrole/{roleName}")]
@@ -148,6 +156,7 @@ namespace NAID_Users.Controllers
         }
 
         [HttpPost("change-role/{userId}")]
+        [Authorize(Policy = "PermissionChangeRole")]
         public async Task<IActionResult> ChangeUserRole(string userId, [FromBody] string roleName)
         {
             try
@@ -193,8 +202,8 @@ namespace NAID_Users.Controllers
             }
         }
 
-        [Authorize]
         [HttpGet("me")]
+        [Authorize]
         public async Task<IActionResult> GetUserData()
         {
             try
@@ -203,12 +212,12 @@ namespace NAID_Users.Controllers
                 {
                     return BadRequest(ModelState);
                 }
-                var userName = User.GetUserName();
-                if (userName == null)
+                var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                if (userId == null)
                 {
-                    return BadRequest(new { message = "user is not authenicated" });
+                    return Unauthorized(new { message = "User not authenticated" });
                 }
-                var user = await _userManager.FindByNameAsync(userName);
+                var user = await _userManager.FindByIdAsync(userId);
                 var roles = await _userManager.GetRolesAsync(user);
                 var role = await _roleManager.FindByNameAsync(roles[0]);
                 var permissions = await _rolePermissionService.GetRolePermissionsAsync(role.Id);

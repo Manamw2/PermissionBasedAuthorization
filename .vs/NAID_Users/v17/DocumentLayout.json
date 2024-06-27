@@ -3,16 +3,28 @@
   "WorkspaceRootPath": "D:\\mahmoudamr\\NAID_Users\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{D1BE5FB7-358A-41D4-81CD-A51CCABDFCB4}|NAID_Users\\NAID_Users.csproj|d:\\mahmoudamr\\naid_users\\naid_users\\authorization\\permissionauthorizationhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1BE5FB7-358A-41D4-81CD-A51CCABDFCB4}|NAID_Users\\NAID_Users.csproj|solutionrelative:naid_users\\authorization\\permissionauthorizationhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D1BE5FB7-358A-41D4-81CD-A51CCABDFCB4}|NAID_Users\\NAID_Users.csproj|d:\\mahmoudamr\\naid_users\\naid_users\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1BE5FB7-358A-41D4-81CD-A51CCABDFCB4}|NAID_Users\\NAID_Users.csproj|solutionrelative:naid_users\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D1BE5FB7-358A-41D4-81CD-A51CCABDFCB4}|NAID_Users\\NAID_Users.csproj|d:\\mahmoudamr\\naid_users\\naid_users\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D1BE5FB7-358A-41D4-81CD-A51CCABDFCB4}|NAID_Users\\NAID_Users.csproj|solutionrelative:naid_users\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D1BE5FB7-358A-41D4-81CD-A51CCABDFCB4}|NAID_Users\\NAID_Users.csproj|d:\\mahmoudamr\\naid_users\\naid_users\\authorization\\permissionpolicyprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D1BE5FB7-358A-41D4-81CD-A51CCABDFCB4}|NAID_Users\\NAID_Users.csproj|solutionrelative:naid_users\\authorization\\permissionpolicyprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D1BE5FB7-358A-41D4-81CD-A51CCABDFCB4}|NAID_Users\\NAID_Users.csproj|d:\\mahmoudamr\\naid_users\\naid_users\\authentication\\memorycacheticketstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1BE5FB7-358A-41D4-81CD-A51CCABDFCB4}|NAID_Users\\NAID_Users.csproj|solutionrelative:naid_users\\authentication\\memorycacheticketstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D1BE5FB7-358A-41D4-81CD-A51CCABDFCB4}|NAID_Users\\NAID_Users.csproj|d:\\mahmoudamr\\naid_users\\naid_users\\authorization\\permissionauthorizationhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D1BE5FB7-358A-41D4-81CD-A51CCABDFCB4}|NAID_Users\\NAID_Users.csproj|solutionrelative:naid_users\\authorization\\permissionauthorizationhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D1BE5FB7-358A-41D4-81CD-A51CCABDFCB4}|NAID_Users\\NAID_Users.csproj|d:\\mahmoudamr\\naid_users\\naid_users\\naid_users.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{D1BE5FB7-358A-41D4-81CD-A51CCABDFCB4}|NAID_Users\\NAID_Users.csproj|solutionrelative:naid_users\\naid_users.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D1BE5FB7-358A-41D4-81CD-A51CCABDFCB4}|NAID_Users\\NAID_Users.csproj|d:\\mahmoudamr\\naid_users\\naid_users\\authorization\\permissionpolicyprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1BE5FB7-358A-41D4-81CD-A51CCABDFCB4}|NAID_Users\\NAID_Users.csproj|solutionrelative:naid_users\\authorization\\permissionpolicyprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D1BE5FB7-358A-41D4-81CD-A51CCABDFCB4}|NAID_Users\\NAID_Users.csproj|d:\\mahmoudamr\\naid_users\\naid_users\\authorization\\permissionrequirement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -26,24 +38,63 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "MemoryCacheTicketStore.cs",
+              "DocumentMoniker": "D:\\mahmoudamr\\NAID_Users\\NAID_Users\\Authentication\\MemoryCacheTicketStore.cs",
+              "RelativeDocumentMoniker": "NAID_Users\\Authentication\\MemoryCacheTicketStore.cs",
+              "ToolTip": "D:\\mahmoudamr\\NAID_Users\\NAID_Users\\Authentication\\MemoryCacheTicketStore.cs",
+              "RelativeToolTip": "NAID_Users\\Authentication\\MemoryCacheTicketStore.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T10:27:40.332Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "NAID_Users",
+              "DocumentMoniker": "D:\\mahmoudamr\\NAID_Users\\NAID_Users\\NAID_Users.csproj",
+              "RelativeDocumentMoniker": "NAID_Users\\NAID_Users.csproj",
+              "ToolTip": "D:\\mahmoudamr\\NAID_Users\\NAID_Users\\NAID_Users.csproj*",
+              "RelativeToolTip": "NAID_Users\\NAID_Users.csproj*",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-06-27T10:06:08.428Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "D:\\mahmoudamr\\NAID_Users\\NAID_Users\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "NAID_Users\\Controllers\\UserController.cs",
+              "ToolTip": "D:\\mahmoudamr\\NAID_Users\\NAID_Users\\Controllers\\UserController.cs",
+              "RelativeToolTip": "NAID_Users\\Controllers\\UserController.cs",
+              "ViewState": "AQIAAJAAAAAAAAAAAAAwwJ8AAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T08:31:30.696Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\mahmoudamr\\NAID_Users\\NAID_Users\\Program.cs",
               "RelativeDocumentMoniker": "NAID_Users\\Program.cs",
               "ToolTip": "D:\\mahmoudamr\\NAID_Users\\NAID_Users\\Program.cs",
               "RelativeToolTip": "NAID_Users\\Program.cs",
-              "ViewState": "AQIAAEIAAAAAAAAAAAAAAGQAAAADAAAA",
+              "ViewState": "AQIAAGYAAAAAAAAAAAAAAGQAAAA1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-26T12:38:20.617Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "PermissionPolicyProvider.cs",
               "DocumentMoniker": "D:\\mahmoudamr\\NAID_Users\\NAID_Users\\Authorization\\PermissionPolicyProvider.cs",
               "RelativeDocumentMoniker": "NAID_Users\\Authorization\\PermissionPolicyProvider.cs",
@@ -56,7 +107,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "PermissionRequirement.cs",
               "DocumentMoniker": "D:\\mahmoudamr\\NAID_Users\\NAID_Users\\Authorization\\PermissionRequirement.cs",
               "RelativeDocumentMoniker": "NAID_Users\\Authorization\\PermissionRequirement.cs",
@@ -69,13 +120,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "PermissionAuthorizationHandler.cs",
               "DocumentMoniker": "D:\\mahmoudamr\\NAID_Users\\NAID_Users\\Authorization\\PermissionAuthorizationHandler.cs",
               "RelativeDocumentMoniker": "NAID_Users\\Authorization\\PermissionAuthorizationHandler.cs",
               "ToolTip": "D:\\mahmoudamr\\NAID_Users\\NAID_Users\\Authorization\\PermissionAuthorizationHandler.cs",
               "RelativeToolTip": "NAID_Users\\Authorization\\PermissionAuthorizationHandler.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAAAFAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-26T12:36:43.19Z",
               "EditorCaption": ""

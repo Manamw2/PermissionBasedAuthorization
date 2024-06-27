@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using NAID_Users.Data;
 using NAID_Users.Dtos.Permissions;
-using NAID_Users.Extensions;
 using NAID_Users.Interfaces;
 using NAID_Users.Models;
 using System.Security.Claims;
@@ -82,10 +81,10 @@ namespace NAID_Users.Services
 
         public async Task<bool> UserHasPermissionAsync(ClaimsPrincipal user, string permissionName)
         {
-            var userName = user.GetUserName();
-            if (userName == null)
+            var userId = user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (userId == null)
                 return false;
-            var appUser = await _userManager.FindByNameAsync(userName);
+            var appUser = await _userManager.FindByIdAsync(userId);
             if (appUser == null)
                 return false;
             var roles = _userManager.GetRolesAsync(appUser).Result;
