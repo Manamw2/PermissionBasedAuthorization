@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NAID_Users.Dtos.User;
+using NAID_Users.Helpers;
 using NAID_Users.Interfaces;
 using NAID_Users.Mappers;
 using NAID_Users.Models;
@@ -65,12 +66,12 @@ namespace NAID_Users.Controllers
                     }
                     else
                     {
-                        return StatusCode(500, roleResult.Errors);
+                        return StatusCode(500, new { roleResult.Errors });
                     }
                 }
                 else
                 {
-                    return StatusCode(500, userResult.Errors);
+                    return StatusCode(500, new { userResult.Errors });
                 }
             }
             catch (Exception e)
@@ -95,7 +96,7 @@ namespace NAID_Users.Controllers
                     user = await _userManager.Users.FirstOrDefaultAsync(u => u.UserName == logInDto.UserNameOrEmail.ToLower());
                     if (user == null)
                     {
-                        return Unauthorized("Invalid username or email");
+                        return Unauthorized(new { message = "Invalid username or email" });
                     }
                 }
                 var result = await _signInManager.PasswordSignInAsync(user, logInDto.Password, true, lockoutOnFailure: false);
@@ -108,19 +109,18 @@ namespace NAID_Users.Controllers
                         {
                             UserName = user.UserName,
                             Email = user.Email,
-                            //Token = _tokenService.CreateToken(user, roles[0]),
                             Role = roles[0]
                         }
                     );
                 }
                 else
                 {
-                    return Unauthorized("Wrong Password");
+                    return Unauthorized(new { message = "Wrong Password" });
                 }
             }
             catch (Exception e)
             {
-                return StatusCode(500, "Internal server error. Please try again later.");
+                return StatusCode(500, new{ message = "Internal server error. Please try again later." });
             }
         }
 
@@ -131,8 +131,8 @@ namespace NAID_Users.Controllers
             return Ok();
         }
 
-        [HttpGet("getuserinrole/{roleName}")]
-        public async Task<IActionResult> GetUsersInRole([FromRoute] string roleName)
+        [HttpGet("getuserinrole")]
+        public async Task<IActionResult> GetUsersInRole([FromQuery] GetUsersQuery usersQuery)
         {
             try
             {
@@ -140,22 +140,23 @@ namespace NAID_Users.Controllers
                 {
                     return BadRequest(ModelState);
                 }
-                var role = await _roleManager.FindByNameAsync(roleName);
+                
+                var role = await _roleManager.FindByNameAsync(usersQuery.roleName);
                 if (role == null)
                 {
-                    return NotFound($"role {roleName} does not exist");
+                    return NotFound(new {message = $"role {usersQuery.roleName} does not exist" });
                 }
-                var users = await _userManager.GetUsersInRoleAsync(roleName);
+                var users = await _userManager.GetUsersInRoleAsync(usersQuery.roleName);
                 var usersDtos = _mapper.Map<List<UserInfoDto>>(users);
                 return Ok(usersDtos);
             }
             catch (Exception e)
             {
-                return StatusCode(500, "Internal server error. Please try again later.");
+                return StatusCode(500, new { message = "Internal server error. Please try again later." });
             }
         }
 
-        [HttpPost("change-role/{userId}")]
+        [HttpPut("change-role/{userId}")]
         [Authorize(Policy = "PermissionChangeRole")]
         public async Task<IActionResult> ChangeUserRole(string userId, [FromBody] string roleName)
         {
@@ -170,7 +171,7 @@ namespace NAID_Users.Controllers
                 var role = await _roleManager.FindByNameAsync(roleName);
                 if (role == null)
                 {
-                    return NotFound($"role {roleName} does not exist");
+                    return NotFound(new { message = $"role {roleName} does not exist" });
                 }
 
                 var currentRoles = await _userManager.GetRolesAsync(user);
@@ -202,6 +203,8 @@ namespace NAID_Users.Controllers
             }
         }
 
+        
+
         [HttpGet("me")]
         [Authorize]
         public async Task<IActionResult> GetUserData()
@@ -222,6 +225,57 @@ namespace NAID_Users.Controllers
                 var role = await _roleManager.FindByNameAsync(roles[0]);
                 var permissions = await _rolePermissionService.GetRolePermissionsAsync(role.Id);
                 return Ok(user.UserToUserMeInfo(role.Name, permissions));
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, new { message = e.Message });
+            }
+        }
+
+        [HttpPost("{userType}")]
+        public async Task<IActionResult> AddUser(string userType, [FromBody] RegisterDto registerDto)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+                var appUser = new AppUser
+                {
+                    UserName = registerDto.UserName,
+                    Email = registerDto.Email
+                };
+                if (await _userManager.Users.AnyAsync(x => x.Email == registerDto.Email))
+                {
+                    return BadRequest(new { message = "Email is already registered." });
+                }
+                var userResult = await _userManager.CreateAsync(appUser, registerDto.Password);
+                var role = await _roleManager.FindByNameAsync(userType);
+                if(role ==  null)
+                {
+                    return BadRequest(new { message = "Role does not exist." });
+                }
+                if (userResult.Succeeded)
+                {
+                    var roleResult = await _userManager.AddToRoleAsync(appUser, userType);
+                    if (roleResult.Succeeded)
+                    {
+                        return Ok(new NewUserDto
+                        {
+                            UserName = appUser.UserName,
+                            Email = appUser.Email,
+                        });
+                    }
+                    else
+                    {
+                        return StatusCode(500, new { roleResult.Errors });
+                    }
+                }
+                else
+                {
+                    return StatusCode(500, new { userResult.Errors });
+                }
             }
             catch (Exception e)
             {
